@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Cards</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            width: 800px;
+        }
+        .panel{
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            border-radius: 60px;
+            cursor: pointer;
+            flex: 0.5;
+            margin: 10px;
+            position: relative;
+            transition: flex 0.7s ease-in;
+        }
+        .panel h3{
+            font-size: 24px;
+            position:absolute;
+            bottom: 20px;
+            left: 20px;
+            margin: 0px;
+            opacity: 0;
+        }
+        .panel.active{
+            flex: 5;
+        }
+        .panel.active h3{
+            opacity: 1;
+            transition:opacity 0.3s ease-in 0.4s;
+        }
+        @media (max-width:480px){
+            .container{
+                width: 100vw;
+            }
+            .panel:nth-of-type(4),.panel:nth-of-type(5){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1666291955915-94a510001fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+            <h3>Explore the worlds</h3>
+        </div>
+        <div class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1666291955915-94a510001fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+            <h3>Explore the worlds</h3>
+        </div>
+        <div class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1666291955915-94a510001fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+            <h3>Explore the worlds</h3>
+        </div>
+        <div class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1666291955915-94a510001fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+            <h3>Explore the worlds</h3>
+        </div>
+        <div class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1666291955915-94a510001fae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+            <h3>Explore the worlds</h3>
+        </div>
+    </div>
+
+    <script>
+        const panels=document.querySelectorAll('.panel');
+        function removeActiveClasses(p){
+            panels.forEach(panel=>{
+                if(p!==panel){
+                    panel.classList.remove('active');
+                }
+            })
+
+        }
+        panels.forEach(panel=>{
+            panel.addEventListener('click',(e)=>{
+                removeActiveClasses(panel);
+                panel.classList.add('active');
+            })
+        });
+    </script>
+    
+</body>
+</html>

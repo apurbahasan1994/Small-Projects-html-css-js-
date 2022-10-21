@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Search</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: blueviolet;
+        }
+
+        .search {
+            position: relative;
+            height: 50px;
+            display: flex;
+        }
+
+        .search input {
+            background-color: white;
+            border: 0;
+            font-size: 18px;
+            padding: 15px;
+           
+            width:0px;
+            transition: width 0.3s ease;
+        }
+        .btn{
+            background-color: white;
+            border: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height:50px;
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+        .btn:focus,input:focus{
+            outline: none;
+        }
+        .search.active input{
+            width: 200px;
+        }
+        .search.active .btn{
+            transform: translateX(198px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <input type="text" name="" id="" placeholder="search anything">
+        <button class="btn"><img src="./search-icon.webp" width="24" height="24"></button>
+    </div>
+    <script>
+        const search=document.querySelector('.search');
+        const btn=document.querySelector('.btn');
+        const input=document.querySelector('input');
+        btn.addEventListener('click',()=>{
+            search.classList.toggle('active');
+            input.focus();
+        });
+         
+    </script>
+
+</body>
+
+</html>
