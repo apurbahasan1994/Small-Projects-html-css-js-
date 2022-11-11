@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <style>
+        :root{
+            --primary-color:#22254b;
+            --secondary-color:#373b69;
+        }
+        body {
+            background-color: steelblue;
+            /* color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 100vh;
+            overflow: hidden; */
+            margin: 0;
+        }
+
+        header {
+            padding: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            background-color: var(--secondary-color);
+        }
+
+        .search {
+            background-color: transparent;
+            border:2px solid var(--primary-color);
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+        .search::placeholder{
+            color: #7378c5;
+        }
+        .search:focus{
+            outline: none;
+            background-color: var(--primary-color);
+        }
+        .search:focus::placeholder{
+            color: white;
+        }
+        main{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .movie{
+            width: 300px;
+            margin: 1rem;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+        .movie img{
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+        }
+        .movie-info{
+            color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem 1rem;
+            letter-spacing: .5px;
+        }
+        .movie-info h3{
+            margin-top: 0;
+        }
+        .movie-info span{
+            background-color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .movie-info span.orange{
+            background-color: orange;
+        }
+        .movie-info span.green{
+            background-color: lightgreen;
+        }
+        .movie-info span.red{
+            background-color:red;
+        }
+        .overview{
+            background-color: white;
+            padding: 2rem;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            max-height: 100%;
+            transform: translateY(101%);
+            transition: transform 0.3s ease-in;
+        }
+        .movie:hover .overview{
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <form id="form">
+            <input type="text" id="seach" class="search" placeholder="Search">
+        </form>
+    </header>
+    <main id="main">
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+        <div class="movie">
+            <img
+                src="https://images.unsplash.com/photo-1667998641206-3eaa8f7047cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class="green">9.8</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, numquam fugit sint, vel quidem nihil
+               
+               
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

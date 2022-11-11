@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Backgorund Image slider</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            background-image: url('https://images.unsplash.com/photo-1485809069980-bdd865d520ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNreSUyMGFuZCUyMG1vdW50YWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: 0.4s;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1
+        }
+
+        .slide-container {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            height: 70vh;
+            width: 70vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            opacity: 0;
+            height: 100vh;
+            width: 100vw;
+            background-position: center center;
+            background-size: cover;
+            position: absolute;
+            top: -15vh;
+            left: -15vw;
+            transition: 0.4s ease;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: fixed;
+            background-color: transparent;
+            padding: 20px;
+            font-size: 30px;
+            border: 2px solid orange;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            cursor: pointer;
+        }
+
+        .left-arrow {
+            left: calc(15vw - 65px);
+        }
+
+        .right-arrow {
+            right: calc(15vw - 65px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="slide active"
+            style="background-image:url('https://images.unsplash.com/photo-1668015918583-e0dee8585f4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60')">
+
+        </div>
+        <div class="slide active"
+            style="background-image:url('https://images.unsplash.com/photo-1582017591586-ffc58bea02f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwYW5kJTIwbW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')">
+
+        </div>
+        <div class="slide active"
+            style="background-image:url('https://images.unsplash.com/photo-1485809069980-bdd865d520ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNreSUyMGFuZCUyMG1vdW50YWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">
+
+        </div>
+        <div class="slide active"
+            style="background-image:url('https://images.unsplash.com/photo-1618264863062-5de2e45995da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMGFuZCUyMG1vdW50YWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">
+
+        </div>
+        <button class="arrow left-arrow" id="left-arrow">
+            <i class="fas fa-arrow-left"> </i>
+        </button>
+        <button class="arrow right-arrow" id="right-arrow">
+            <i class="fas fa-arrow-right"> </i>
+        </button>
+    </div>
+    <script>
+        const body = document.body;
+        const slides = document.querySelectorAll('.slide');
+        const leftBtn = document.getElementById('left-arrow');
+        const rightBtn = document.getElementById('right-arrow');
+        let activeSlide = 0;
+        setBgToBody();
+        setActiveSlides();
+        function setBgToBody() {
+            body.style.backgroundImage = slides[activeSlide].style.backgroundImage;
+        }
+        function setActiveSlides() {
+            slides.forEach(slide => {
+                slide.classList.remove('active')
+            });
+            slides[activeSlide].classList.add('active');
+        }
+        rightBtn.addEventListener('click', () => {
+            activeSlide++;
+            activeSlide = activeSlide % slides.length;
+            setBgToBody();
+            setActiveSlides();
+        })
+        leftBtn.addEventListener('click', () => {
+            activeSlide--;
+            activeSlide =activeSlide % slides.length;
+            setBgToBody();
+            setActiveSlides();
+        })
+
+    </script>
+
+
+</body>
+
+</html>

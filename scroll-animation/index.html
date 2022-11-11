@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* height: 100vh; */
+            overflow: auto;
+            margin: 0;
+        }
+
+        .box {
+            background-color: steelblue;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            margin: 10px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+            transform: translateX(-400%);
+            transition: transform 0.4s ease;
+        }
+        .box.show{
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+    <div class="box">
+        <h2>Content</h2>
+    </div>
+
+</body>
+<script>
+    const boxes=document.querySelectorAll('.box');
+    window.addEventListener('scroll',checkBoxes);
+    checkBoxes();
+    function checkBoxes(){
+     const triggerBottom=window.innerHeight/5*4;
+     boxes.forEach(box=>{
+        const boxTop=box.getBoundingClientRect().top;
+        if(boxTop<triggerBottom){
+            box.classList.add('show');
+        }
+        else{
+            box.classList.remove('show')
+        }
+     })
+    }
+</script>
+
+</html>
