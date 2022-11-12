@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Corosel</title>
+    <style>
+        body {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .carosel {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            height: 549px;
+            width: 500px;
+            overflow: hidden;
+        }
+
+        .image-cotainer {
+            display: flex;
+            transform: translate(0);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        img {
+
+            min-width: 500px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: rebeccapurple;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 49.5%;
+            height: 48px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carosel">
+        <div class="image-cotainer" id="imgs">
+            <img
+                src="https://images.unsplash.com/photo-1668086620216-851f13fbce3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <img
+                src="https://images.unsplash.com/photo-1668241514687-f3bd64afaf95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+            <img
+                src="https://images.unsplash.com/photo-1668241282073-2cf47bae10d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
+            <img
+                src="https://images.unsplash.com/photo-1668248949793-12718a4dd485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+            <img
+                src="https://images.unsplash.com/photo-1668242372382-9e6282c63578?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+
+        </div>
+        <div class="btn-container">
+            <button id="left">Prev</button>
+            <button id="right">Next</button>
+
+        </div>
+    </div>
+    <script>
+        const imgs = document.getElementById('imgs');
+        const leftBtn = document.getElementById('left');
+        const rightBtn = document.getElementById('right');
+        const img = document.querySelectorAll('#imgs img');
+        let idx = 0;
+        let interval = setInterval(run, 4000);
+        run();
+        function run() {
+            idx++;
+            changeImage();
+        }
+        function changeImage() {
+            if (idx > img.length - 1) {
+                idx = 0
+            }
+            else if (idx < 0) {
+                idx = img.length - 1;
+            }
+            imgs.style.transform = `translateX(${-idx * 500}px)`;
+        }
+        function resetInterVal() {
+            clearInterval(interval);
+            interval = setInterval(run, 4000);
+        }
+        leftBtn.addEventListener('click', () => {
+            idx--;
+            changeImage();
+            resetInterVal();
+        })
+        rightBtn.addEventListener('click', () => {
+
+            idx++;
+             changeImage();
+            resetInterVal();
+        })
+    </script>
+
+</body>
+
+</html>
