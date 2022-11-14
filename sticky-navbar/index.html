@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1668283764349-86c3f955d40a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60');
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+            z-index: -2
+        }
+
+        .hero::before {
+            content: '';
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin: -20px 0 20px;
+
+        }
+
+        .hero p {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .content h2,
+        .content h3 {
+            font-size: 150%;
+            margin: 20px 0;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 30px;
+            letter-spacing: 1.2px;
+        }
+
+        .nav {
+            position: fixed;
+            background-color: #222;
+            top: 0;
+            right: 0;
+            left: 0;
+           
+            transition: all .3s ease-in-out;
+        }
+        .nav a{
+          color: white;
+        }
+
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav .container h1 a {
+            text-decoration: none;
+
+        }
+
+        .nav .container ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-items: center;
+            
+        }
+        .nav .container ul li a{
+            text-decoration: none;
+            padding: 7px 15px;
+            transition:  all 0.3s ease-in-out;
+        }
+        .nav.active{
+            background-color: white;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.3) ;
+        }
+        .nav.active a{
+            color: black;
+        }
+        .nav.active .container{
+            padding: 10px 0;
+        }
+        .nav a.current , .nav a:hover{
+            color: #c0392b;
+            font-weight: bold;
+
+        }
+       
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <h1 class="logo">
+                <a href="">My website</a>
+            </h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Testimonials</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome To My Website</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem sit itaque vitae iste dignissimos
+                voluptas iure quibusdam possimus ab odit sequi repudiandae at eligendi corrupti perferendis, accusamus,
+                molestias quae libero.
+
+            </p>
+
+        </div>
+
+    </div>
+    <section class="container content">
+        <h2>Content One</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores neque alias suscipit, obcaecati
+            expedita iure enim, culpa eveniet illum odit fugiat provident unde magnam, doloribus fugit asperiores
+            dolorem dolore?
+            Officia fugiat placeat mollitia quos deserunt voluptas ipsam ipsa ab. Adipisci delectus perspiciatis, quasi
+            quae dicta, aspernatur quas voluptates doloribus ea fugiat tempore harum odio non laborum, ipsa quibusdam
+            maxime!
+            Nemo culpa sapiente ea numquam sunt, reprehenderit deserunt inventore, cupiditate quod vero adipisci
+            aperiam? Quidem corrupti accusantium laboriosam ullam quisquam illum autem quibusdam, fugiat nesciunt ex
+            quam ut, doloremque repellat.
+            Nam ex ipsum sapiente officia officiis accusantium quis. Sunt deleniti magnam ad ullam adipisci officia iure
+            quod quam voluptatem, quaerat impedit. Fugiat veniam repellat adipisci distinctio dignissimos asperiores
+            amet molestias.
+            Laborum cumque odio fuga. Maiores excepturi voluptates nulla ipsum. Quam hic exercitationem nobis! Ea
+            reprehenderit, quidem aliquid voluptatum suscipit temporibus consequatur nostrum aspernatur modi laudantium
+            dolor, fugiat dicta numquam quo?
+            Quidem modi ut facilis? Sunt, minus impedit? Quod quia impedit repellat sit architecto incidunt, reiciendis
+            aut aperiam corporis, qui laboriosam culpa ea provident consectetur nemo, alias distinctio vero natus a?
+            Corporis sunt asperiores assumenda quod, doloribus soluta aut ad omnis provident fuga ullam perspiciatis,
+            vitae voluptate aliquid sit ab rerum nisi ipsa, eius placeat quia aliquam nihil? Dignissimos, fugit aliquam?
+            Molestiae corporis, odit earum placeat facilis similique commodi magnam corrupti dolorem labore dolor aut,
+            quo sit impedit sunt cupiditate adipisci odio voluptates saepe, veniam praesentium. Repudiandae dolores iste
+            ad aliquid?
+            Cumque esse, sint quis cum ducimus neque ullam, ad doloribus, autem quae eius facilis delectus cupiditate?
+            Quod, reprehenderit, eius voluptatem vero reiciendis sint, unde nobis fuga corrupti tempora dolore ratione!
+            Nam nemo ea consequatur distinctio nulla quibusdam quos odit explicabo repudiandae cum at nesciunt commodi
+            quas aliquam doloremque, id, iste culpa rem eos in fuga vero alias ullam! Laudantium, at!</p>
+
+        <h3>Content Two</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores neque alias suscipit, obcaecati
+            expedita iure enim, culpa eveniet illum odit fugiat provident unde magnam, doloribus fugit asperiores
+            dolorem dolore?
+            Officia fugiat placeat mollitia quos deserunt voluptas ipsam ipsa ab. Adipisci delectus perspiciatis, quasi
+            quae dicta, aspernatur quas voluptates doloribus ea fugiat tempore harum odio non laborum, ipsa quibusdam
+            maxime!
+            Nemo culpa sapiente ea numquam sunt, reprehenderit deserunt inventore, cupiditate quod vero adipisci
+            aperiam? Quidem corrupti accusantium laboriosam ullam quisquam illum autem quibusdam, fugiat nesciunt ex
+            quam ut, doloremque repellat.
+            Nam ex ipsum sapiente officia officiis accusantium quis. Sunt deleniti magnam ad ullam adipisci officia iure
+            quod quam voluptatem, quaerat impedit. Fugiat veniam repellat adipisci distinctio dignissimos asperiores
+            amet molestias.
+            Laborum cumque odio fuga. Maiores excepturi voluptates nulla ipsum. Quam hic exercitationem nobis! Ea
+            reprehenderit, quidem aliquid voluptatum suscipit temporibus consequatur nostrum aspernatur modi laudantium
+            dolor, fugiat dicta numquam quo?
+            Quidem modi ut facilis? Sunt, minus impedit? Quod quia impedit repellat sit architecto incidunt, reiciendis
+            aut aperiam corporis, qui laboriosam culpa ea provident consectetur nemo, alias distinctio vero natus a?
+            Corporis sunt asperiores assumenda quod, doloribus soluta aut ad omnis provident fuga ullam perspiciatis,
+            vitae voluptate aliquid sit ab rerum nisi ipsa, eius placeat quia aliquam nihil? Dignissimos, fugit aliquam?
+            Molestiae corporis, odit earum placeat facilis similique commodi magnam corrupti dolorem labore dolor aut,
+            quo sit impedit sunt cupiditate adipisci odio voluptates saepe, veniam praesentium. Repudiandae dolores iste
+            ad aliquid?
+            Cumque esse, sint quis cum ducimus neque ullam, ad doloribus, autem quae eius facilis delectus cupiditate?
+            Quod, reprehenderit, eius voluptatem vero reiciendis sint, unde nobis fuga corrupti tempora dolore ratione!
+            Nam nemo ea consequatur distinctio nulla quibusdam quos odit explicabo repudiandae cum at nesciunt commodi
+            quas aliquam doloremque, id, iste culpa rem eos in fuga vero alias ullam! Laudantium, at!</p>
+
+    </section>
+    <script>
+        const nav =document.querySelector('.nav');
+        window.addEventListener('scroll',fixNav);
+        function fixNav(){
+            if(window.scrollY>nav.offsetHeight+150){
+                nav.classList.add('active');
+            }
+            else{
+                nav.classList.remove('active');
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
