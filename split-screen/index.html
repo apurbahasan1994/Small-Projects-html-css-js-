@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+
+        }
+        .split{
+            position: absolute;
+            width: 50%;
+            height: 100%;
+
+        }
+        .left::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color:rgba(87, 84, 236, 0.7) ;
+        }
+        .left{
+            left: 0;
+            background: url('https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8eGJveHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .right{
+            right: 0;
+            background: url('https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8eGJveHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .right::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color:rgba(39, 38, 62, 0.7) ;
+        }
+        h1{
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            font-size: 4rem;
+            transform: translateX(-50%);
+        }
+        .btn{
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translateX(-50%);
+            text-decoration: none;
+            color: aliceblue;
+            border: 1px solid white;
+            padding: 20px 40px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .left .btn:hover{
+            background-color:rgba(87, 84, 236, 0.7) ;
+            color: white;
+        }
+        .right .btn:hover{
+            background-color:rgba(39, 38, 62, 0.7) ;
+            color: white;
+        }
+        .hover-left .left{
+            width: 75%;
+        } 
+        .hover-left .right{
+            width: 25%;
+        }
+        .hover-right .left{
+            width: 25%;
+        } 
+        .hover-right .right{
+            width: 75%;
+        }
+        .right ,.left,.right::before,.left::before{
+            transition: all 1000ms ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="split left">
+            <h1>Playstation 5</h1>
+            <a href="#" class="btn">Buy Now</a>
+        </div>
+        <div class="split right">
+            <h1>Xbox serires-X</h1>
+            <a href="#" class="btn">Buy Now</a>
+        </div>
+
+
+    </div>
+
+    <script>
+        const left=document.querySelector('.left');
+        const right=document.querySelector('.right');
+        const parent=document.querySelector('.container');
+        left.addEventListener('mouseover',()=>{
+            if(parent.classList.contains('hover-right')){
+                parent.classList.remove('hover-right')
+            }
+            parent.classList.add('hover-left')
+            
+        })
+        right.addEventListener('mouseover',()=>{
+            if(parent.classList.contains('hover-left')){
+                parent.classList.remove('hover-left')
+            }
+            parent.classList.add('hover-right')
+            
+        })
+    </script>
+
+</body>
+
+</html>
