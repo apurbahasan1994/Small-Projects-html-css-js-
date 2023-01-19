@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blueviolet;
+        }
+
+        .wrapper {
+            background-color: white;
+            width: 430px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .wrapper header {
+            color: #6990f2;
+            font-size: 27px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .wrapper form {
+            border: 2px dashed #6990f2;
+            height: 167px;
+            margin: 30px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: #6990f2;
+
+        }
+
+        form i {
+            font-size: 50px;
+        }
+
+        form p {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+
+        section .row {
+            background-color: #e9f0ff;
+            margin-bottom: 10px;
+            list-style: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .progress-area .row .content {
+            width: 100%;
+            color: #6990f2;
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-bar {
+            height: 6px;
+            width: 100%;
+            background-color: white;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+
+        .progress-bar .progress {
+            height: 100%;
+            width: 50%;
+            background-color: #6990f2;
+            border-radius: 30px;
+        }
+
+        section .row i {
+            font-size: 30px;
+            color: #6990f2;
+        }
+
+
+        section .details span {
+            font-size: 14px;
+        }
+
+        .progress-area .details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .uploader-area {
+            max-height: 150px;
+            overflow-y: scroll;
+        }
+
+        .uploader-area .content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: #6990f2;
+        }
+
+        .uploader-area::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .uploader-area .details {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+        }
+
+        .uploader-area .details .size {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>File Uploader</header>
+        <form action="#">
+            <input class="fileInput" type="file" accept="image/*" hidden>
+            <i class="fas fa-cloud-upload-alt"></i>
+
+            <p>Browse file to upload</p>
+
+
+
+        </form>
+        <section class="progress-area">
+            <li class="row">
+                <i class="fas fa-file-alt"></i>
+                <div class="content">
+                    <div class="details">
+                        <span class="name"> image1.png * uploading</span>
+                        <span class="percent">50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+
+            </li>
+        </section>
+        <section class="uploader-area">
+            <li class="row">
+                <div class="content">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="details">
+                        <span class="name"> image1.png * uploaded</span>
+                        <span class="size">70Kb</span>
+                    </div>
+                </div>
+                <i class="fas fa-check"></i>
+
+            </li>
+            <li class="row">
+                <div class="content">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="details">
+                        <span class="name"> image1.png * uploaded</span>
+                        <span class="size">70Kb</span>
+                    </div>
+                </div>
+                <i class="fas fa-check"></i>
+
+            </li>
+            <li class="row">
+                <div class="content">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="details">
+                        <span class="name"> image1.png * uploaded</span>
+                        <span class="size">70Kb</span>
+                    </div>
+                </div>
+                <i class="fas fa-check"></i>
+
+            </li>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        const form = document.querySelector('form');
+        const fileInput = document.querySelector('.fileInput');
+        const progressArea = document.querySelector('.progress-area');
+        const uploadArea = document.querySelector('.upload-area');
+
+        form.addEventListener('click', () => {
+            fileInput.click();
+        });
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+            uploadFile(file);
+        });
+
+        async function uploadFile(name) {
+            const li = document.createElement('li');
+            for (let i = 0; i < 100; i++) {
+
+                li.innerHTML = `<i class="fas fa-file-alt"></i>
+                <div class="content">
+                    <div class="details">
+                        <span class="name"> image1.png * uploading</span>
+                        <span class="percent">${i}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width:${i}%"></div>
+                    </div>
+                </div>`
+            li.classList.add('row');
+            progressArea.appendChild(li);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
